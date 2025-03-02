@@ -18,8 +18,14 @@ const handleCreateNewUser = (req, res) => {
     return res.send("handleCreateNewUser");
 }
 
+const handleGetUserList = async (req, res) => {
+    let data = await userService.getUserList();
+    return res.send(data);
+}
+
 module.exports = {
     handleHelloworld,
     handleUserPage,
-    handleCreateNewUser
+    handleCreateNewUser,
+    handleGetUserList
 }
