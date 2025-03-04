@@ -1,7 +1,27 @@
 import userService from "../service/userService";
 
-const handleHelloworld = (req, res) => {
+const handleGetHomePage = (req, res) => {
     return res.render("home.ejs");
+}
+
+const handleGetProduct = (req, res) => {
+    return res.render("product.ejs");
+}
+
+const handleGetContact = (req, res) => {
+    return res.render("contact.ejs");
+}
+
+const handleGetNews = (req, res) => {
+    return res.render("news.ejs");
+}
+
+const handleGetIntroduce = (req, res) => {
+    return res.render("introduce.ejs");
+}
+
+const handleGetRecruit = (req, res) => {
+    return res.render("recruit.ejs");
 }
 
 const handleUserPage = (req, res) => {
@@ -24,7 +44,12 @@ const handleGetUserList = async (req, res) => {
 }
 
 module.exports = {
-    handleHelloworld,
+    handleGetHomePage,
+    handleGetProduct,
+    handleGetContact,
+    handleGetNews,
+    handleGetIntroduce,
+    handleGetRecruit,
     handleUserPage,
     handleCreateNewUser,
     handleGetUserList
