@@ -433,3 +433,21 @@ i.fa-solid.fa-arrow-right {
     width: 80%;
     border-radius: 10px;
 }
+
+/* Trang đăng ký */
+
+.login-facebook {
+    background-color: blue;
+    width: 130px;
+    height: 36px;
+    border-radius: 3px;
+    margin: auto;
+}
+
+.login-google {
+    background-color: red;
+    width: 130px;
+    height: 36px;
+    border-radius: 3px;
+    margin: auto;
+}

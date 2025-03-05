@@ -24,24 +24,28 @@ const handleGetRecruit = (req, res) => {
     return res.render("recruit.ejs");
 }
 
-const handleUserPage = (req, res) => {
-    return res.render("user.ejs");
+const handleRegisterAccount = (req, res) => {
+    return res.render("register.ejs");
 }
 
-const handleCreateNewUser = (req, res) => {
-    let email = req.body.email;
-    let password = req.body.password;
-    let username = req.body.username;
+// const handleUserPage = (req, res) => {
+//     return res.render("user.ejs");
+// }
 
-    userService.createNewUser(email, password, username);
+// const handleCreateNewUser = (req, res) => {
+//     let email = req.body.email;
+//     let password = req.body.password;
+//     let username = req.body.username;
 
-    return res.send("handleCreateNewUser");
-}
+//     userService.createNewUser(email, password, username);
 
-const handleGetUserList = async (req, res) => {
-    let data = await userService.getUserList();
-    return res.send(data);
-}
+//     return res.send("handleCreateNewUser");
+// }
+
+// const handleGetUserList = async (req, res) => {
+//     let data = await userService.getUserList();
+//     return res.send(data);
+// }
 
 module.exports = {
     handleGetHomePage,
@@ -50,7 +54,8 @@ module.exports = {
     handleGetNews,
     handleGetIntroduce,
     handleGetRecruit,
-    handleUserPage,
-    handleCreateNewUser,
-    handleGetUserList
+    handleRegisterAccount
+    // handleUserPage,
+    // handleCreateNewUser,
+    // handleGetUserList
 }

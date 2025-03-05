@@ -15,10 +15,10 @@ const initWebRoutes = (app) => {
     router.get("/gioi-thieu", homeController.handleGetIntroduce);
     router.get("/tuyen-dung", homeController.handleGetRecruit);
 
-
-    router.get("/user", homeController.handleUserPage);
-    router.get("/user/get-user", homeController.handleGetUserList);
-    router.post("/user/create-user", homeController.handleCreateNewUser);
+    router.get("/account/register", homeController.handleRegisterAccount);
+    // router.get("/user", homeController.handleUserPage);
+    // router.get("/user/get-user", homeController.handleGetUserList);
+    // router.post("/user/create-user", homeController.handleCreateNewUser);
 
     return app.use("/", router);
 }
