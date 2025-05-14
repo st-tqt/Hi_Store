@@ -4,7 +4,7 @@ import initWebRoutes from "./routes/web";
 require("dotenv").config();
 import bodyParser from "body-parser";
 import connection from "./config/connectDB";
-import { createJWT, verifyToken } from "./middleware/jwtAction";
+import session from 'express-session';
 
 require("dotenv").config();
 
@@ -14,11 +14,22 @@ const PORT = process.env.PORT || 8080;
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+// Cấu hình session
+app.use(session({
+    secret: 'your-secret-key', // Thay bằng chuỗi ngẫu nhiên
+    resave: false,
+    saveUninitialized: false,
+    cookie: { secure: false }
+}));
+
+// Truyền session vào tất cả template
+app.use((req, res, next) => {
+    res.locals.session = req.session; // Đảm bảo dòng này có
+    next();
+});
+
 // config view engine
 configViewEngine(app);
-
-// createJWT();
-// verifyToken("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiVFFUIiwiYWRkcmVzcyI6IlZQIiwiaWF0IjoxNzQxMDc5ODM0fQ.zVdLnwg7o-EpprnmF63DCo8FwlRFcVCIBjacUd-Qf-I");
 
 connection();
 

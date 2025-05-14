@@ -1,4 +1,3 @@
-import userService from "../service/userService";
 
 const handleGetHomePage = (req, res) => {
     return res.render("home.ejs");
@@ -28,24 +27,9 @@ const handleRegisterAccount = (req, res) => {
     return res.render("register.ejs");
 }
 
-// const handleUserPage = (req, res) => {
-//     return res.render("user.ejs");
-// }
-
-// const handleCreateNewUser = (req, res) => {
-//     let email = req.body.email;
-//     let password = req.body.password;
-//     let username = req.body.username;
-
-//     userService.createNewUser(email, password, username);
-
-//     return res.send("handleCreateNewUser");
-// }
-
-// const handleGetUserList = async (req, res) => {
-//     let data = await userService.getUserList();
-//     return res.send(data);
-// }
+const handleLoginAccount = (req, res) => {
+    return res.render("login.ejs");
+}
 
 module.exports = {
     handleGetHomePage,
@@ -54,8 +38,6 @@ module.exports = {
     handleGetNews,
     handleGetIntroduce,
     handleGetRecruit,
-    handleRegisterAccount
-    // handleUserPage,
-    // handleCreateNewUser,
-    // handleGetUserList
+    handleRegisterAccount,
+    handleLoginAccount
 }

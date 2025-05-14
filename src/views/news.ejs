@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
-    <title>Document</title>
+    <title>Hí Store - Baby three chính hãng</title>
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/bootstrap.min.css">
     <script src="/js/script.js"></script>
@@ -13,45 +13,7 @@
 
 <body>
     <!-- header -->
-    <!-- Header Top -->
-    <section class="header-top">
-        <a href="#" class="logo">
-            <img src="/img/logo.png" alt="Logo">
-        </a>
-
-        <div class="search-bar">
-            <input type="text" placeholder="Tìm sản phẩm bạn mong muốn">
-            <button type="submit"><i class="fa fa-search"></i></button>
-        </div>
-
-        <div class="user-auth">
-            <i class="fa-solid fa-circle-user"></i>
-            <a href="#">Đăng nhập</a> /
-            <a href="/account/register">Đăng ký</a>
-        </div>
-
-        <div class="cart">
-            <a href="giohang.html">
-                <i class="fa-solid fa-cart-shopping"></i> <span class="cart-count">0</span>
-            </a>
-        </div>
-    </section>
-
-    <!-- Header Bottom -->
-    <section class="header-bottom">
-        <ul class="navbar text-center">
-            <li><a class="active" href="/">Trang chủ</a></li>
-            <li><a href="/san-pham">Sản phẩm</a></li>
-            <li><a href="/lien-he">Liên hệ</a></li>
-            <li><a href="/tin-tuc">Tin tức</a></li>
-            <li><a href="/gioi-thieu">Giới thiệu</a></li>
-            <li><a href="/tuyen-dung">Tuyển dụng</a></li>
-        </ul>
-
-        <div class="hotline">
-            <i class="fa fa-phone"></i> Hotline: <span>0768 79 3009</span>
-        </div>
-    </section>
+    <%- include('header') %>
 
     <!-- mid -->
     <div class="container" style="height: 1300px;">
@@ -252,47 +214,7 @@
     </div>
 
     <!-- footer -->
-    <footer>
-        <div class="footer-container">
-            <div class="footer-left">
-                <div class="footer-left-logo">
-                    <img src="/img/Hi_Store.png" class="footer-logo">
-                    <p>Hí Store với gần 10 năm kinh nghiệm trong ngành phân phối thời trang Authentic</p>
-                </div>
-                <div class="contact-info">
-                    <p><i class="fas fa-map-marker-alt"></i> 48/34 Trường Chinh, Phường 4, quận Tân Bình, TPHCM</p>
-                    <p><i class="fas fa-clock"></i> 10h sáng - 21h30 tối</p>
-                    <p><i class="fas fa-phone"></i> Hotline: <strong>0768 79 3009</strong></p>
-                </div>
-                <p class="business-info">Hộ Kinh Doanh Hí Store Giấy chứng nhận đăng ký kinh doanh số 41N8156146. Ngày
-                    cấp 14/02/2023. Nơi cấp: Ủy Ban Nhân Dân Quận Tân Bình.</p>
-            </div>
-
-            <div class="footer-center">
-                <h4>Hỗ trợ khách hàng</h4>
-                <p style="color: #aba9a9;">Hướng dẫn sử dụng Fundiin</p>
-            </div>
-
-            <div class="footer-right">
-                <h4>Bản đồ chỉ dẫn Google Map</h4>
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.22804781171!2d106.64994907485713!3d10.79383818935599!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3175291a358adba3%3A0xa785bbc0dc0ec61c!2zSMOtIFN0b3JlIC0gR2nDoHkgY2jDrW5oIGjDo25n!5e0!3m2!1svi!2s!4v1740749215263!5m2!1svi!2s"
-                    width="90%" height="200" style="border:0;" allowfullscreen="" loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
-
-            <div class="footer-social">
-                <h4>Kết Nối Với Hí</h4>
-                <div class="social-icons">
-                    <a href="#"><i class="fab fa-youtube"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                    <a href="#"><i class="fab fa-tiktok"></i></a>
-                </div>
-            </div>
-        </div>
-    </footer>
-
+    <%- include('footer') %>
 </body>
 
 </html>

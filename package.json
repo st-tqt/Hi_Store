@@ -19,11 +19,15 @@
     "cookie-parser": "1.4.6",
     "dotenv": "10.0.0",
     "ejs": "3.1.6",
+    "express-session": "^1.17.2",
     "express": "4.17.2",
     "jsonwebtoken": "8.5.1",
     "mysql2": "2.3.3",
     "nodemon": "2.0.15",
     "sequelize": "6.13.0",
     "sequelize-cli": "6.3.0"
+  },
+  "devDependencies": {
+    "npm-force-resolutions": "0.0.10"
   }
 }

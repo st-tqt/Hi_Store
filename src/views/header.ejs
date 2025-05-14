@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <script src="/js/script.js"></script>
+</head>
+
+<body>
+    <!-- header -->
+    <!-- Header Top -->
+    <section class="header-top">
+        <a href="/" class="logo">
+            <img src="/img/logo.png" alt="Logo">
+        </a>
+
+        <div class="search-bar">
+            <input type="text" placeholder="Tìm sản phẩm bạn mong muốn">
+            <button type="submit"><i class="fa fa-search"></i></button>
+        </div>
+
+        <div class="user-auth">
+            <i class="fa-solid fa-circle-user"></i>
+            <% if (session && session.user) { %>
+                <a href="/account/profile">Tài khoản</a> /
+                <a href="/account/logout">Đăng xuất</a>
+                <% } 
+            else { %>
+                <a href="/account/login">Đăng nhập</a> /
+                <a href="/account/register">Đăng ký</a>
+            <% } %>
+        </div>
+
+        <div class="cart">
+            <a href="giohang.html">
+                <i class="fa-solid fa-cart-shopping"></i> <span class="cart-count">0</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Header Bottom -->
+    <section class="header-bottom">
+        <ul class="navbar text-center">
+            <li><a class="active" href="/">Trang chủ</a></li>
+            <li><a href="/san-pham">Sản phẩm</a></li>
+            <li><a href="/lien-he">Liên hệ</a></li>
+            <li><a href="/tin-tuc">Tin tức</a></li>
+            <li><a href="/gioi-thieu">Giới thiệu</a></li>
+            <li><a href="/tuyen-dung">Tuyển dụng</a></li>
+        </ul>
+
+        <div class="hotline">
+            <i class="fa fa-phone"></i> Hotline: <span>0768 793 009</span>
+        </div>
+    </section>
+</body>
+
+</html>

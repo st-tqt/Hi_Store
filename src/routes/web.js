@@ -1,12 +1,9 @@
 import express from "express";
 import homeController from "../controller/homeController";
+import userController from "../controller/userController";
 
 const router = express.Router();
 
-/**
- * 
- * @param {*} app : express app 
- */
 const initWebRoutes = (app) => {
     router.get("/", homeController.handleGetHomePage);
     router.get("/san-pham", homeController.handleGetProduct);
@@ -15,10 +12,13 @@ const initWebRoutes = (app) => {
     router.get("/gioi-thieu", homeController.handleGetIntroduce);
     router.get("/tuyen-dung", homeController.handleGetRecruit);
 
+    router.get("/account/login", homeController.handleLoginAccount);
+    router.post("/account/login-user", userController.handleLoginUser);
     router.get("/account/register", homeController.handleRegisterAccount);
-    // router.get("/user", homeController.handleUserPage);
-    // router.get("/user/get-user", homeController.handleGetUserList);
-    // router.post("/user/create-user", homeController.handleCreateNewUser);
+    router.post("/account/create-new-user", userController.handleCreateNewUser);
+
+    router.get("/account/profile", userController.handleGetProfile);
+    router.get("/account/logout", userController.handleLogoutUser);
 
     return app.use("/", router);
 }
