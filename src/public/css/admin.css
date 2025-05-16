@@ -1,0 +1,28 @@
+body {
+    background-color: #f5f5f5;
+}
+
+.sidebar {
+    min-height: 100vh;
+    background-color: #343a40;
+}
+
+.sidebar a {
+    color: #fff;
+    padding: 15px;
+    display: block;
+    text-decoration: none;
+}
+
+.sidebar a:hover {
+    background-color: #495057;
+}
+
+.content {
+    padding: 20px;
+}
+
+.product-img {
+    max-width: 50px;
+    height: auto;
+}

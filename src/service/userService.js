@@ -51,7 +51,7 @@ let createUserService = (data) => {
                     email: data.email,
                     phoneNumber: data.phoneNumber,
                     password: hashPasswordFromBcrypt,
-                    roleId: 2,
+                    roleId: data.roleId == "Admin" ? 1 : 2
                 })
 
                 resolve({
