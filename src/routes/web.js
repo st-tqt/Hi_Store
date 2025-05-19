@@ -22,11 +22,11 @@ const initWebRoutes = (app) => {
     router.get("/account/logout", userController.handleLogoutUser);
 
     // admin
+
+    // admin user
     router.get("/admin/home", adminController.handleGetHomeAdmin);
-    router.get("/admin/product", adminController.handleGetProductManage);
 
     router.get("/admin/user", adminController.handleGetUserManage);
-
     router.get("/admin/form-create-new-user", adminController.handleGetFormCreateNewUser);
     router.post("/admin/create-new-user", adminController.handleCreateNewUser);
     
@@ -34,6 +34,11 @@ const initWebRoutes = (app) => {
     router.post("/admin/edit-user", adminController.handleEditUser);
     
     router.get("/admin/delete-user", adminController.handleDeleteUser);
+
+    // admin product
+    router.get("/admin/product", adminController.handleGetProductManage);
+    router.get("/admin/form-create-new-product", adminController.handleGetFormCreateNewProduct);
+    router.post("/admin/create-new-product", adminController.handleCreateNewProduct);
 
     return app.use("/", router);
 }

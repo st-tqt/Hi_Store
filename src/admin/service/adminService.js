@@ -89,9 +89,46 @@ let deleteUserService = (userId) => {
     })
 }
 
+let getAllProductService = () => {
+    return new Promise(async (resolve, reject) => {
+        try {
+            let products = db.Product.findAll({
+                raw: true,
+            });
+            resolve(products);
+        } catch (e) {
+            reject(e);
+        }
+    })
+}
+
+let createProductService = (data) => {
+    return new Promise(async (resolve, reject) => {
+        try {
+            await db.Product.create({
+                code: data.code,
+                name: data.name,
+                description: data.description,
+                price: data.price,
+                quantity: data.quantity,
+                image: data.image
+            })
+
+            resolve({
+                errCode: 0,
+                message: 'OK',
+            })
+        } catch (e) {
+            reject(e);
+        }
+    })
+}
+
 module.exports = {
     getAllUserService,
     getUserInforById,
     editUserService,
-    deleteUserService
+    deleteUserService,
+    getAllProductService,
+    createProductService
 }

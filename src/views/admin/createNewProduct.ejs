@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD with TQT</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <form action="/admin/create-new-product" method="POST" enctype="multipart/form-data">
+
+                <div class="form-row">
+                    <div class="col-12 mt-3 mb-3" style="font-size: 40px; font-weight: 700;">
+                        Tạo mới sản phẩm
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputEmail4">Mã sản phẩm</label>
+                        <input type="text" class="form-control" placeholder="Mã" name="code">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputPassword4">Tên sản phẩm</label>
+                        <input type="text" class="form-control" placeholder="Tên sản phẩm" name="name">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-8">
+                        <label for="inputEmail4">Mô tả</label>
+                        <input type="text" class="form-control" placeholder="Mô tả" name="description">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="inputPassword4">Giá</label>
+                        <input type="text" class="form-control" placeholder="Giá" name="price">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputCity">Số lượng</label>
+                        <input type="text" class="form-control" placeholder="Số lượng" name="quantity">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputZip">Image</label>
+                        <input type="file" accept="image/*" name="image">
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Tải lên</button>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
