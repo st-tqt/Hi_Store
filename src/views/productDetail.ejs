@@ -27,31 +27,37 @@
                 </span>
                 <i class="fas fa-chevron-right mr-2"></i>
                 <span>
-                    <b><%=product.code%></b>
+                    <b>
+                        <%=product.code%>
+                    </b>
                 </span>
             </div>
 
             <div class="row">
                 <!-- Product Image -->
                 <div class="col-md-6">
-                    <img src="<%= product.image %>" alt="Nón MLB Cap LA Dodgers Blue White"
-                        class="product-image">
+                    <img src="<%= product.image %>" alt="Nón MLB Cap LA Dodgers Blue White" class="product-image">
                 </div>
                 <!-- Product Details -->
                 <div class="col-md-6">
-                    <h2 class="fs-4 fw-bold"><%=product.code + " - " + product.name + " - " + product.description%></h2>
-                    <p class="text-muted">Mã sp: <%= product.code %></p>
+                    <h2 class="fs-4 fw-bold">
+                        <%=product.code + " - " + product.name + " - " + product.description%>
+                    </h2>
+                    <p class="text-muted">Mã sp: <%= product.code %>
+                    </p>
                     <div class="d-flex align-items-center">
-                        <% function formatPrice(price) { 
-                            return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "." ); 
-                        } %>
-                        <span class="price"><%= formatPrice(product.price) %>đ</span>
-                        <span class="original-price">1.900.000đ</span>
-                        <span class="sale-badge">Sale</span>
+                        <% function formatPrice(price) { return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "." );
+                            } %>
+                            <span class="price">
+                                <%= formatPrice(product.price) %>đ
+                            </span>
+                            <span class="original-price">1.900.000đ</span>
+                            <span class="sale-badge">Sale</span>
                     </div>
                     <div class="guarantee mb-3">
                         <a>
-                            <img src="https://bizweb.dktcdn.net/100/467/909/themes/914227/assets/iamge_product2.png?1747465985386" alt="">
+                            <img src="https://bizweb.dktcdn.net/100/467/909/themes/914227/assets/iamge_product2.png?1747465985386"
+                                alt="">
                         </a>
                         <div class="title-text ml-3">
                             <b>BẢO HIỂM CHÍNH HÃNG 100% </b> <br>
@@ -60,7 +66,8 @@
                     </div>
                     <div class="shipping mb-4">
                         <a>
-                            <img src="https://bizweb.dktcdn.net/100/467/909/themes/914227/assets/iamge_product1.png?1747465985386" alt="">
+                            <img src="https://bizweb.dktcdn.net/100/467/909/themes/914227/assets/iamge_product1.png?1747465985386"
+                                alt="">
                         </a>
                         <div class="title-text ml-3">
                             <b>HIỆN TẠI FREESHIP TOÀN QUỐC - GIAO NHANH 2H </b> <br>
@@ -74,7 +81,11 @@
                         <button class="btn btn-outline-secondary" onclick="updateQuantity(1)">+</button>
                     </div>
                     <button class="buy-now-btn">Mua ngay</button>
-                    <button class="add-to-cart-btn">Thêm vào giỏ hàng</button>
+                    <form action="/gio-hang/add" method="POST">
+                        <input type="hidden" name="productId" value="<%= product.id %>">
+                        <input type="hidden" name="quantity" value="1">
+                        <button type="submit" class="add-to-cart-btn">Thêm vào giỏ hàng</button>
+                    </form>
                 </div>
             </div>
         </div>

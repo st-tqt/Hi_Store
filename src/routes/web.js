@@ -17,6 +17,7 @@ const initWebRoutes = (app) => {
 
     router.get("/gio-hang", cartController.handleGetCart);
     router.post("/gio-hang/add", cartController.handleAddToCart);
+    router.get("/gio-hang/delete", cartController.handleDeleteCartItem);
 
     router.get("/chi-tiet-san-pham", productController.handleGetProductDetail);
 

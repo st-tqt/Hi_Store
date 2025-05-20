@@ -1,5 +1,40 @@
 import db from "../models/index";
 
+const getCartByUserId = async (userId) => {
+    try {
+        const cart = await db.Cart.findOne({
+            where: { userId: userId },
+            include: [
+                {
+                    model: db.CartItem,
+                    as: 'items',
+                    attributes: {
+                        exclude: ['createdAt', 'updatedAt']
+                    },
+                    include: [
+                        {
+                            model: db.Product,
+                            as: 'product',
+                            attributes: {
+                                exclude: ['createdAt', 'updatedAt']
+                            },
+                        }
+                    ]
+                }
+            ],
+            nest: true
+        });
+
+        if (!cart) {
+            return { items: [] };
+        }
+
+        return { items: cart.items || [] };
+    } catch (e) {
+        throw e;
+    }
+};
+
 const addToCart = async (userId, productId, quantity = 1) => {
     try {
         // Tìm giỏ hàng của người dùng
@@ -9,7 +44,9 @@ const addToCart = async (userId, productId, quantity = 1) => {
 
         // Nếu chưa có giỏ hàng, tạo mới
         if (!cart) {
-            cart = await db.Cart.create({ userId: userId });
+            cart = await db.Cart.create({ 
+                userId: userId 
+            });
         }
 
         // Kiểm tra sản phẩm có tồn tại không
@@ -48,42 +85,26 @@ const addToCart = async (userId, productId, quantity = 1) => {
     }
 };
 
-const getCartByUserId = async (userId) => {
-    try {
-        const cart = await db.Cart.findOne({
-            where: { userId: userId },
-            include: [
-                {
-                    model: db.CartItem,
-                    as: 'items',
-                    attributes: {
-                        exclude: ['createdAt', 'updatedAt']
-                    },
-                    include: [
-                        {
-                            model: db.Product,
-                            as: 'product',
-                            attributes: {
-                                exclude: ['createdAt', 'updatedAt']
-                            },
-                        }
-                    ]
-                }
-            ],
-            nest: true
-        });
+let deleteCartItemService = (CartItemId) => {
+    return new Promise(async (resolve, reject) => {
+        try {
+            let cartItem = await db.CartItem.findOne({
+                where: { id: CartItemId }
+            })
 
-        if (!cart) {
-            return { items: [] };
+            if (cartItem) {
+                await cartItem.destroy();
+            }
+
+            resolve();
+        } catch (e) {
+            reject(e);
         }
-
-        return { items: cart.items || [] };
-    } catch (e) {
-        throw e;
-    }
-};
+    })
+}
 
 module.exports = {
     addToCart,
-    getCartByUserId
+    getCartByUserId,
+    deleteCartItemService
 };
