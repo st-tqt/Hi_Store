@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <title>Hí Store - Baby three chính hãng</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/product.css">
+    <link rel="stylesheet" href="/css/productDetail.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <script src="/js/script.js"></script>
+</head>
+
+<body>
+    <!-- header -->
+    <%- include('header') %>
+
+        <div class="container mb-5">
+            <div class="breadcumb row mt-5 mb-4">
+                <a href="/" class="mr-2" style="text-decoration: none; color: rgb(42, 42, 42);">Trang
+                    chủ</a>
+                <i class="fas fa-chevron-right mr-2"></i>
+                <span class="mr-2">
+                    <b>Chi tiết sản phẩm</b>
+                </span>
+                <i class="fas fa-chevron-right mr-2"></i>
+                <span>
+                    <b><%=product.code%></b>
+                </span>
+            </div>
+
+            <div class="row">
+                <!-- Product Image -->
+                <div class="col-md-6">
+                    <img src="<%= product.image %>" alt="Nón MLB Cap LA Dodgers Blue White"
+                        class="product-image">
+                </div>
+                <!-- Product Details -->
+                <div class="col-md-6">
+                    <h2 class="fs-4 fw-bold"><%=product.code + " - " + product.name + " - " + product.description%></h2>
+                    <p class="text-muted">Mã sp: <%= product.code %></p>
+                    <div class="d-flex align-items-center">
+                        <% function formatPrice(price) { 
+                            return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "." ); 
+                        } %>
+                        <span class="price"><%= formatPrice(product.price) %>đ</span>
+                        <span class="original-price">1.900.000đ</span>
+                        <span class="sale-badge">Sale</span>
+                    </div>
+                    <div class="guarantee mb-3">
+                        <a>
+                            <img src="https://bizweb.dktcdn.net/100/467/909/themes/914227/assets/iamge_product2.png?1747465985386" alt="">
+                        </a>
+                        <div class="title-text ml-3">
+                            <b>BẢO HIỂM CHÍNH HÃNG 100% </b> <br>
+                            Cam kết chính hãng 100% trọn đời sản phẩm. Phát hiện giả đền FULL GIÁ TRỊ
+                        </div>
+                    </div>
+                    <div class="shipping mb-4">
+                        <a>
+                            <img src="https://bizweb.dktcdn.net/100/467/909/themes/914227/assets/iamge_product1.png?1747465985386" alt="">
+                        </a>
+                        <div class="title-text ml-3">
+                            <b>HIỆN TẠI FREESHIP TOÀN QUỐC - GIAO NHANH 2H </b> <br>
+                            Miễn phí vận chuyển toàn quốc (đơn từ 500K) Giao hàng hóa tốc 2h nội thành TPHCM
+                        </div>
+                    </div>
+                    <div class="quantity-selector">
+                        <span class="me-2 mr-2">Số lượng:</span>
+                        <button class="btn btn-outline-secondary" onclick="updateQuantity(-1)">-</button>
+                        <input type="text" value="1" readonly>
+                        <button class="btn btn-outline-secondary" onclick="updateQuantity(1)">+</button>
+                    </div>
+                    <button class="buy-now-btn">Mua ngay</button>
+                    <button class="add-to-cart-btn">Thêm vào giỏ hàng</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- footer -->
+        <%- include('footer') %>
+</body>
+
+</html>

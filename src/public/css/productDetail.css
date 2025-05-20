@@ -1,0 +1,88 @@
+body {
+    background-color: #f8f9fa;
+}
+
+.product-image {
+    width: 95%;
+    height: auto;
+    border-radius: 10px;
+    max-height: 570px;
+    object-fit: cover;
+}
+
+.price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #e74c3c;
+}
+
+.original-price {
+    text-decoration: line-through;
+    color: #7f8c8d;
+    margin-left: 10px;
+}
+
+.sale-badge {
+    background-color: #e74c3c;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    margin-left: 10px;
+}
+
+.guarantee,
+.shipping {
+    font-size: 0.9rem;
+    margin-top: 10px;
+    display: flex;
+}
+
+.title-text {
+    font-size: 18px;
+}
+
+.quantity-selector {
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.quantity-selector button {
+    width: 40px;
+    height: 40px;
+    border: 1px solid #ced4da;
+    background-color: #fff;
+    font-size: 1.2rem;
+}
+
+.quantity-selector input {
+    width: 60px;
+    text-align: center;
+    border: 1px solid #ced4da;
+    border-left: none;
+    border-right: none;
+    height: 40px;
+}
+
+.buy-now-btn {
+    background-color: #212529;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    width: 100%;
+    margin-top: 15px;
+}
+
+.add-to-cart-btn {
+    border: 1px solid #212529;
+    color: #212529;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    width: 100%;
+    margin-top: 10px;
+    background-color: transparent;
+}

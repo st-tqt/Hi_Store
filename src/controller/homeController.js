@@ -3,10 +3,6 @@ const handleGetHomePage = (req, res) => {
     return res.render("home.ejs");
 }
 
-const handleGetProduct = (req, res) => {
-    return res.render("product.ejs");
-}
-
 const handleGetContact = (req, res) => {
     return res.render("contact.ejs");
 }
@@ -31,13 +27,17 @@ const handleLoginAccount = (req, res) => {
     return res.render("login.ejs");
 }
 
+const handleGetCart = (req, res) => {
+    return res.render("cart.ejs");
+}
+
 module.exports = {
     handleGetHomePage,
-    handleGetProduct,
     handleGetContact,
     handleGetNews,
     handleGetIntroduce,
     handleGetRecruit,
     handleRegisterAccount,
-    handleLoginAccount
+    handleLoginAccount,
+    handleGetCart
 }

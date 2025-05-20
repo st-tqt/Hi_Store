@@ -45,7 +45,7 @@ const handleDeleteUser = async (req, res) => {
     return res.redirect("/admin/user");
 }
 
-
+// product
 const handleGetProductManage = async (req, res) => {
     const data = await adminservice.getAllProductService();
     return res.render("admin/productManage.ejs", {
@@ -81,6 +81,12 @@ const handleCreateNewProduct = async (req, res) => {
     });
 }
 
+const handleDeleteProduct = async (req, res) => {
+    const id = req.query.id;
+    await adminservice.deleteProductService(id);
+    return res.redirect("/admin/product");
+}
+
 module.exports = {
     handleGetHomeAdmin,
     handleGetProductManage,
@@ -91,5 +97,6 @@ module.exports = {
     handleEditUser,
     handleDeleteUser,
     handleGetFormCreateNewProduct,
-    handleCreateNewProduct
+    handleCreateNewProduct,
+    handleDeleteProduct
 }

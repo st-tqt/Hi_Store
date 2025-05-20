@@ -1,17 +1,24 @@
 import express from "express";
 import homeController from "../controller/homeController";
 import userController from "../controller/userController";
+import productController from "../controller/productController";
 import adminController from "../admin/controller/adminController";
+import cartController from "../controller/cartController";
 
 const router = express.Router();
 
 const initWebRoutes = (app) => {
     router.get("/", homeController.handleGetHomePage);
-    router.get("/san-pham", homeController.handleGetProduct);
+    router.get("/san-pham", productController.handleGetProduct);
     router.get("/lien-he", homeController.handleGetContact);
     router.get("/tin-tuc", homeController.handleGetNews);
     router.get("/gioi-thieu", homeController.handleGetIntroduce);
     router.get("/tuyen-dung", homeController.handleGetRecruit);
+
+    router.get("/gio-hang", cartController.handleGetCart);
+    router.post("/gio-hang/add", cartController.handleAddToCart);
+
+    router.get("/chi-tiet-san-pham", productController.handleGetProductDetail);
 
     router.get("/account/login", homeController.handleLoginAccount);
     router.post("/account/login-user", userController.handleLoginUser);
@@ -39,6 +46,8 @@ const initWebRoutes = (app) => {
     router.get("/admin/product", adminController.handleGetProductManage);
     router.get("/admin/form-create-new-product", adminController.handleGetFormCreateNewProduct);
     router.post("/admin/create-new-product", adminController.handleCreateNewProduct);
+
+    router.get("/admin/delete-product", adminController.handleDeleteProduct);
 
     return app.use("/", router);
 }

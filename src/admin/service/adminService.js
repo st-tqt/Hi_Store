@@ -124,11 +124,30 @@ let createProductService = (data) => {
     })
 }
 
+let deleteProductService = (ProductId) => {
+    return new Promise(async (resolve, reject) => {
+        try {
+            let product = await db.Product.findOne({
+                where: { id: ProductId }
+            })
+
+            if (product) {
+                await product.destroy();
+            }
+
+            resolve();
+        } catch (e) {
+            reject(e);
+        }
+    })
+}
+
 module.exports = {
     getAllUserService,
     getUserInforById,
     editUserService,
     deleteUserService,
     getAllProductService,
-    createProductService
+    createProductService,
+    deleteProductService
 }

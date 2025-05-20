@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <title>Hí Store - Baby three chính hãng</title>
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/product.css">
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <script src="/js/script.js"></script>
 </head>
@@ -15,40 +16,47 @@
     <!-- header -->
     <%- include('header') %>
 
-    <!-- mid -->
-    <div class="container">
-        <div class="breadcumb row mt-5 mb-4">
-            <a href="/" class="mr-2" style="text-decoration: none; color: rgb(42, 42, 42);">Trang
-                chủ</a>
-            <i class="fas fa-chevron-right mr-2"></i>
-            <span>
-                <b>Tất cả sản phẩm</b>
-            </span>
+        <!-- mid -->
+        <div class="container">
+            <div class="breadcumb row mt-5 mb-4">
+                <a href="/" class="mr-2" style="text-decoration: none; color: rgb(42, 42, 42);">Trang
+                    chủ</a>
+                <i class="fas fa-chevron-right mr-2"></i>
+                <span>
+                    <b>Tất cả sản phẩm</b>
+                </span>
+            </div>
+
+            <div class="row">
+                <% for (let i=0; i < dataTable.length; i++) {%>
+                    <div class="card p-3 mb-4">
+                        <div>
+                            <a href="/chi-tiet-san-pham?id=<%= dataTable[i].id %>">
+                                <img src="<%= dataTable[i].image %>" class="card-image">
+                            </a>
+                        </div>
+                        <div class="mt-2">
+                            <h6 class="card-title">
+                                <b><a href="/chi-tiet-san-pham?id=<%= dataTable[i].id %>">
+                                        <%=dataTable[i].code + " - " + dataTable[i].name%>
+                                    </a></b>
+                            </h6>
+                        </div>
+                        <div class="">
+                            <p style="color: red; font-size: 17px;">
+                                <% function formatPrice(price) { 
+                                    return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "." ); 
+                                } %>
+                                <b>Giá: <%= formatPrice(dataTable[i].price) %></b>
+                            </p>
+                        </div>
+                    </div>
+                    <% }%>
+            </div>
         </div>
-        <div class="row">
-            <div style="width: 20%; height: 300px; border: 1px solid red;">
 
-            </div>
-            <div style="width: 20%; height: 300px; border: 1px solid red;">
-
-            </div>
-            <div style="width: 20%; height: 300px; border: 1px solid red;">
-
-            </div>
-            <div style="width: 20%; height: 300px; border: 1px solid red;">
-
-            </div>
-            <div style="width: 20%; height: 300px; border: 1px solid red;">
-
-            </div>
-            <div style="width: 20%; height: 300px; border: 1px solid red;">
-
-            </div>
-        </div>
-    </div>
-
-    <!-- footer -->
-    <%- include('footer') %>
+        <!-- footer -->
+        <%- include('footer') %>
 </body>
 
 </html>

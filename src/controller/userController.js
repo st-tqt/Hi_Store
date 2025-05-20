@@ -23,6 +23,7 @@ let handleLoginUser = async (req, res) => {
     let userData = await userService.loginUserService(email, password);
     if (userData.errCode === 0) {
         req.session.user = {
+            id: userData.user.id,
             email: userData.user.email,
             firstName: userData.user.firstName,
             lastName: userData.user.lastName,
