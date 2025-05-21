@@ -81,6 +81,19 @@ const handleCreateNewProduct = async (req, res) => {
     });
 }
 
+const handleGetFormEditProduct = async (req, res) => {
+    const product = await adminservice.getProductById(req.query.id);
+    return res.render("admin/editProduct.ejs", {
+        product: product,
+    });
+}
+
+const handleEditProduct = async (req, res) => {
+    const data = req.body;
+    const message = await adminservice.editProductService(data);
+    return res.redirect("/admin/product");
+}
+
 const handleDeleteProduct = async (req, res) => {
     const id = req.query.id;
     await adminservice.deleteProductService(id);
@@ -98,5 +111,7 @@ module.exports = {
     handleDeleteUser,
     handleGetFormCreateNewProduct,
     handleCreateNewProduct,
+    handleGetFormEditProduct,
+    handleEditProduct,
     handleDeleteProduct
 }

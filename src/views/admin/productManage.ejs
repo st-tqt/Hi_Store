@@ -26,10 +26,11 @@
                     <thead>
                         <tr>
                             <th>ID</th>
+                            <th>Mã sản phẩm</th>
                             <th>Tên sản phẩm</th>
                             <th>Giá</th>
                             <th>Số lượng</th>
-                            <th>Mô tả</th>
+                            <th>Loại sản phẩm</th>
                             <th>Ảnh</th>
                             <th>Hành động</th>
                         </tr>
@@ -39,6 +40,9 @@
                             <tr>
                                 <td>
                                     <%= dataTable[i].id%>
+                                </td>
+                                <td>
+                                    <%= dataTable[i].code%>
                                 </td>
                                 <td>
                                     <%= dataTable[i].name%>
@@ -61,7 +65,7 @@
                                 </td>
                                 <td>
                                     <button class="btn btn-sm btn-warning"
-                                        onclick="window.location.href='/admin/form-edit-user?id=<%= dataTable[i].id %>'">Sửa</button>
+                                        onclick="window.location.href='/admin/form-edit-product?id=<%= dataTable[i].id %>'">Sửa</button>
                                     <button class="btn btn-sm btn-danger"
                                         onclick="window.location.href='/admin/delete-product?id=<%= dataTable[i].id %>'">Xóa</button>
                                 </td>

@@ -27,7 +27,8 @@ let handleLoginUser = async (req, res) => {
             email: userData.user.email,
             firstName: userData.user.firstName,
             lastName: userData.user.lastName,
-            phoneNumber: userData.user.phoneNumber
+            phoneNumber: userData.user.phoneNumber,
+            roleId: userData.user.roleId
         };
         return res.redirect('/account/profile'); 
     } else {

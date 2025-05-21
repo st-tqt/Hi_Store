@@ -23,18 +23,23 @@
 <body>
     <div class="container">
         <div class="row">
-            <form action="/admin/create-new-product" method="POST" enctype="multipart/form-data">
+            <form action="/admin/edit-product" method="POST">
 
                 <div class="form-row">
                     <div class="col-12 mt-3 mb-3" style="font-size: 40px; font-weight: 700;">
-                        Thêm mới sản phẩm
+                        Chỉnh sửa sản phẩm
                     </div>
+                    <input type="hidden" class="form-control" name="id"
+                            value=<%=product.id %> readonly>
                     <div class="form-group col-md-6">
                         <label for="inputEmail4">Mã sản phẩm</label>
-                        <input type="text" class="form-control" placeholder="Mã" name="code">
+                        <input type="text" class="form-control" placeholder="Mã" name="code"
+                            value=<%=product.code %> readonly>
                     </div>
                     <div class="form-group col-md-6">
-                        <label for="inputZip">Loại sản phẩm</label>
+                        <label for="inputEmail4">Loại sản phẩm</label>
+                        <!-- <input type="text" class="form-control" name="description"
+                            value=<%=product.description %> readonly> -->
                         <select name="description" class="form-control">
                             <option value="hat">Mũ</option>
                             <option value="shirt">Áo</option>
@@ -46,25 +51,27 @@
                 <div class="form-row">
                     <div class="form-group col-md-8">
                         <label for="inputPassword4">Tên sản phẩm</label>
-                        <input type="text" class="form-control" placeholder="Tên sản phẩm" name="name">
+                        <input type="text" class="form-control" placeholder="Tên sản phẩm" name="name"
+                            value=<%=product.name %>>
                     </div>
                     <div class="form-group col-md-4">
                         <label for="inputPassword4">Giá</label>
-                        <input type="text" class="form-control" placeholder="Giá" name="price">
+                        <input type="text" class="form-control" placeholder="Giá" name="price"
+                            value=<%=product.price %>>
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="inputCity">Số lượng</label>
-                        <input type="text" class="form-control" placeholder="Số lượng" name="quantity">
+                        <input type="text" class="form-control" placeholder="Số lượng" name="quantity"
+                            value=<%=product.quantity %>>
                     </div>
                     <div class="form-group col-md-6">
-                        <label for="inputZip">Image</label>
-                        <input type="file" accept="image/*" name="image">
+                        <img src="<%=product.image %>" alt="#" style="width: 200px; height: 200px;">
                     </div>
                 </div>
 
-                <button type="submit" class="btn btn-primary">Thêm mới</button>
+                <button type="submit" class="btn btn-primary">Chỉnh sửa</button>
             </form>
         </div>
     </div>

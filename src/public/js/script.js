@@ -62,3 +62,10 @@ function updateQuantity(change, button) {
     // Cập nhật tổng tiền giỏ hàng
     updateCartTotal();
 }
+
+function updateQuantityDetail(change) {
+    const input = document.getElementById('quantity');
+    let value = parseInt(input.value);
+    value = Math.max(1, value + change); // Không cho phép số lượng nhỏ hơn 1
+    input.value = value;
+}

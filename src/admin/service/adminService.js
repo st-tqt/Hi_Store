@@ -52,6 +52,7 @@ let editUserService = (data) => {
                     firstName: data.firstName,
                     lastName: data.lastName,
                     phonenumber: data.phonenumber,
+                    roleId: data.roleId
                 })
 
                 resolve({
@@ -108,7 +109,7 @@ let createProductService = (data) => {
             await db.Product.create({
                 code: data.code,
                 name: data.name,
-                description: data.description,
+                description: data.description === 'hat' ? 'Mũ' : data.description === 'shirt' ? 'Áo' : data.description === 'bag'? 'Túi' : 'Gấu',
                 price: data.price,
                 quantity: data.quantity,
                 image: data.image
@@ -118,6 +119,65 @@ let createProductService = (data) => {
                 errCode: 0,
                 message: 'OK',
             })
+        } catch (e) {
+            reject(e);
+        }
+    })
+}
+
+let getProductById = (productId) => {
+    return new Promise(async (resolve, reject) => {
+        try {
+            let product = await db.Product.findOne({
+                where: { id: productId },
+                raw: true
+            });
+
+            if (product) {
+                resolve(product);
+            }
+            else {
+                resolve([]);
+            }
+        } catch (e) {
+            reject(e);
+        }
+    })
+}
+
+let editProductService = (data) => {
+    return new Promise(async (resolve, reject) => {
+        try {
+            if (!data.id) {
+                resolve({
+                    errCode: 2,
+                    errMessage: "Missing required parameters!"
+                })
+            }
+            let product = await db.Product.findOne({
+                where: { id: data.id },
+                raw: false,
+            })
+
+            if (product) {
+                await product.update({
+                    name: data.name,
+                    description: data.description === 'hat' ? 'Mũ' : data.description === 'shirt' ? 'Áo' : data.description === 'bag'? 'Túi' : 'Gấu',
+                    price: data.price,
+                    quantity: data.quantity
+                })
+
+                resolve({
+                    errCode: 0,
+                    message: "Update thành công",
+                })
+            }
+            else {
+                resolve({
+                    errCode: 1,
+                    errMessage: "Không tìm thấy sản phẩm",
+                });
+            }
         } catch (e) {
             reject(e);
         }
@@ -149,5 +209,7 @@ module.exports = {
     deleteUserService,
     getAllProductService,
     createProductService,
+    getProductById,
+    editProductService,
     deleteProductService
 }

@@ -1,7 +1,7 @@
 import productService from "../service/productService";
 
 const handleGetProduct = async (req, res) => {
-    const data = await productService.getAllProductService();
+    const data = await productService.getAllProductService(req.query.action ? req.query.action : 'all');
     return res.render("product.ejs", {
         dataTable: data
     });

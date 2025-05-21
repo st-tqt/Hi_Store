@@ -68,7 +68,8 @@ const addToCart = async (userId, productId, quantity = 1) => {
 
         if (cartItem) {
             // Nếu sản phẩm đã có, tăng số lượng
-            cartItem.quantity += quantity;
+            const parsedQuantity = parseInt(quantity);
+            cartItem.quantity += parsedQuantity;
             await cartItem.save();
         } else {
             // Nếu chưa có, tạo mới mặt hàng trong giỏ

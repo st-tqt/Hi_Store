@@ -4,10 +4,14 @@ import userController from "../controller/userController";
 import productController from "../controller/productController";
 import adminController from "../admin/controller/adminController";
 import cartController from "../controller/cartController";
+import { differentiateUserAdmin } from "../middleware/authMiddleware";
 
 const router = express.Router();
 
 const initWebRoutes = (app) => {
+    // Áp dụng middleware cho tất cả route
+    router.use(differentiateUserAdmin);
+
     router.get("/", homeController.handleGetHomePage);
     router.get("/san-pham", productController.handleGetProduct);
     router.get("/lien-he", homeController.handleGetContact);
@@ -47,6 +51,9 @@ const initWebRoutes = (app) => {
     router.get("/admin/product", adminController.handleGetProductManage);
     router.get("/admin/form-create-new-product", adminController.handleGetFormCreateNewProduct);
     router.post("/admin/create-new-product", adminController.handleCreateNewProduct);
+
+    router.get("/admin/form-edit-product", adminController.handleGetFormEditProduct);
+    router.post("/admin/edit-product", adminController.handleEditProduct);
 
     router.get("/admin/delete-product", adminController.handleDeleteProduct);
 

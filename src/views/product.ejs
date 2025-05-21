@@ -22,9 +22,21 @@
                 <a href="/" class="mr-2" style="text-decoration: none; color: rgb(42, 42, 42);">Trang
                     chủ</a>
                 <i class="fas fa-chevron-right mr-2"></i>
-                <span>
+                <span class="mr-2">
                     <b>Tất cả sản phẩm</b>
                 </span>
+                <i class="fas fa-chevron-right mr-2"></i>
+                <form action="">
+                    <select name="action" style="border: none;" onchange="this.form.submit()">
+                        <option value="all">Tất cả sản phẩm</option>
+                        <option value="hat">Các loại mũ</option>
+                        <option value="shirt">Các loại áo</option>
+                        <option value="bag">Các loại túi</option>
+                        <option value="bear">Các loại gấu</option>
+                        <option value="up">Giá tăng dần</option>
+                        <option value="down">Giá giảm dần</option>
+                    </select>
+                </form>
             </div>
 
             <div class="row">
@@ -57,6 +69,22 @@
 
         <!-- footer -->
         <%- include('footer') %>
+
+        <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Lấy tham số từ URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const actionValue = urlParams.get('action');
+
+            // Tìm thẻ select
+            const select = document.querySelector('select[name="action"]');
+
+            // Đặt option đã chọn dựa trên tham số URL
+            if (actionValue) {
+                select.value = actionValue; // Đặt giá trị cho select
+            }
+        });
+    </script>
 </body>
 
 </html>
