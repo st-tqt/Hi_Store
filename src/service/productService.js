@@ -1,4 +1,3 @@
-import { where } from "sequelize/lib/sequelize";
 import db from "../models/index";
 
 let getAllProductService = (data) => {
@@ -73,7 +72,33 @@ let getProductById = (productId) => {
     })
 }
 
+let searchProductByName = (searchTerm) => {
+    return new Promise(async (resolve, reject) => {
+        try {
+            let products = '';
+
+            if (!searchTerm || typeof searchTerm !== 'string' || searchTerm.trim() === '') {
+                resolve(products); // Trả về mảng rỗng nếu không có từ khóa hợp lệ
+                return;
+            } 
+
+            products = await db.Product.findAll({
+                where: {
+                    name: {
+                        [db.Sequelize.Op.like]: `%${searchTerm.trim()}%` // Tìm kiếm tên chứa chuỗi searchTerm, không phân biệt hoa thường
+                    }
+                },
+                raw: true
+            });
+            resolve(products);
+        } catch (e) {
+            reject(e);
+        }
+    });
+};
+
 module.exports = {
     getAllProductService,
-    getProductById
+    getProductById,
+    searchProductByName
 }

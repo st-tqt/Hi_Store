@@ -47,29 +47,45 @@ body {
 .search-bar {
     display: flex;
     align-items: center;
-    border: 1px solid #ccc;
-    border-radius: 25px;
-    overflow: hidden;
-    width: 500px;
-    background: #f5f5f5;
+    width: 500px; /* Giữ chiều rộng mong muốn */
 }
 
-.search-bar input {
+.search-form {
+    display: flex;
+    align-items: center;
+    background-color: #f5f5f5; /* Nền xám nhạt giống hình */
+    border: 1px solid #ccc; /* Viền nhẹ */
+    border-radius: 25px; /* Bo góc giống hình */
+    overflow: hidden;
+    width: 100%; /* Đảm bảo form chiếm toàn bộ chiều rộng của search-bar */
+}
+
+.search-form input {
+    flex: 1; /* Ô nhập liệu chiếm toàn bộ không gian còn lại */
     border: none;
     padding: 10px;
-    width: 100%;
+    font-size: 16px;
     outline: none;
     background: transparent;
+    color: #333;
 }
 
-.search-bar button {
-    background: black;
-    color: white;
+.search-form button {
+    background-color: #000; /* Nền đen cho nút */
     border: none;
+    color: #fff; /* Biểu tượng màu trắng */
     padding: 10px 15px;
     cursor: pointer;
+    border-radius: 0 25px 25px 0; /* Bo góc bên phải để khớp với form */
+    display: flex;
+    align-items: center;
+    justify-content: center;
     height: 45px;
     width: 50px;
+}
+
+.search-form button i {
+    font-size: 16px;
 }
 
 ::before {

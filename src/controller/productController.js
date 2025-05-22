@@ -14,7 +14,16 @@ const handleGetProductDetail = async (req, res) => {
     });
 }
 
+const handleSearchProduct = async (req, res) => {
+    const searchTerm = req.query.search || ''; 
+    const data = await productService.searchProductByName(searchTerm);
+    return res.render("product.ejs", {
+        dataTable: data
+    });
+};
+
 module.exports = {
     handleGetProduct,
-    handleGetProductDetail
+    handleGetProductDetail,
+    handleSearchProduct
 }

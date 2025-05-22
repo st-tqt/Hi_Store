@@ -13,7 +13,10 @@ const initWebRoutes = (app) => {
     router.use(differentiateUserAdmin);
 
     router.get("/", homeController.handleGetHomePage);
+    
     router.get("/san-pham", productController.handleGetProduct);
+    router.get("/san-pham/search", productController.handleSearchProduct);
+
     router.get("/lien-he", homeController.handleGetContact);
     router.get("/tin-tuc", homeController.handleGetNews);
     router.get("/gioi-thieu", homeController.handleGetIntroduce);
