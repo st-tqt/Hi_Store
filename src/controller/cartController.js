@@ -36,6 +36,10 @@ const handleAddToCart = async (req, res) => {
     }
 
     await cartService.addToCart(userId, productId, quantity || 1);
+
+    const parsedQuantity = parseInt(quantity);
+    req.session.cart.quantity += parsedQuantity;
+
     return res.redirect('/san-pham');
   } catch (e) {
     return res.status(500).json({ errCode: 3, message: e.message || "Lỗi máy chủ" });
@@ -44,7 +48,8 @@ const handleAddToCart = async (req, res) => {
 
 const handleDeleteCartItem = async (req, res) => {
   const id = req.query.id;
-  await cartService.deleteCartItemService(id);
+  const result = await cartService.deleteCartItemService(id);
+  req.session.cart.quantity -= result;
   return res.redirect("/gio-hang");
 }
 

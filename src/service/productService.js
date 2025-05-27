@@ -52,6 +52,21 @@ let getAllProductService = (data) => {
     })
 }
 
+let getProductByLimit = (limit) => {
+    return new Promise(async (resolve, reject) => {
+        try {
+            let products = await db.Product.findAll({
+                order: [['createdAt', 'DESC']],
+                limit: limit,
+                raw: true
+            });
+            resolve(products);
+        } catch (e) {
+            reject(e);
+        }
+    })
+}
+
 let getProductById = (productId) => {
     return new Promise(async (resolve, reject) => {
         try {
@@ -78,7 +93,7 @@ let searchProductByName = (searchTerm) => {
             let products = '';
 
             if (!searchTerm || typeof searchTerm !== 'string' || searchTerm.trim() === '') {
-                resolve(products); // Trả về mảng rỗng nếu không có từ khóa hợp lệ
+                resolve(products); 
                 return;
             } 
 
@@ -99,6 +114,7 @@ let searchProductByName = (searchTerm) => {
 
 module.exports = {
     getAllProductService,
+    getProductByLimit,
     getProductById,
     searchProductByName
 }

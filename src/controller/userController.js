@@ -1,4 +1,5 @@
 import userService from "../service/userService";
+import cartService from "../service/cartService";
 
 const handleCreateNewUser = async (req, res) => {
     let message = await userService.createUserService(req.body);
@@ -30,6 +31,13 @@ let handleLoginUser = async (req, res) => {
             phoneNumber: userData.user.phoneNumber,
             roleId: userData.user.roleId
         };
+
+        const cart = await cartService.getCartByUserId(userData.user.id);
+        const totalQuantity = cart.items.reduce((sum, item) => sum + (item.quantity || 0), 0);
+        req.session.cart = {
+            quantity: totalQuantity
+        }
+        
         return res.redirect('/account/profile'); 
     } else {
         return res.render('login.ejs', {

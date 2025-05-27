@@ -1,6 +1,13 @@
 
-const handleGetHomePage = (req, res) => {
-    return res.render("home.ejs");
+import productService from "../service/productService";
+
+const handleGetHomePage = async (req, res) => {
+    const data = await productService.getProductByLimit(15);
+    const products = await productService.getAllProductService('all');
+    return res.render("home.ejs", {
+        productsArray: data,
+        dataTable: products
+    });
 }
 
 const handleGetContact = (req, res) => {

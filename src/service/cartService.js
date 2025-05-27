@@ -94,10 +94,13 @@ let deleteCartItemService = (CartItemId) => {
             })
 
             if (cartItem) {
+                const quantity = cartItem.quantity;
                 await cartItem.destroy();
+                resolve({ deletedQuantity: quantity });
             }
-
-            resolve();
+            else {
+                resolve({ deletedQuantity: 0 });
+            }
         } catch (e) {
             reject(e);
         }

@@ -38,7 +38,9 @@
 
         <div class="cart">
             <a href="/gio-hang">
-                <i class="fa-solid fa-cart-shopping"></i> <span class="cart-count">0</span>
+                <i class="fa-solid fa-cart-shopping"></i> <span class="cart-count">
+                    <%=(session && session.cart && session.cart.quantity) ? session.cart.quantity : 0%>
+                </span>
             </a>
         </div>
     </section>

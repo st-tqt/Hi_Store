@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <title>Hí Store - Baby three chính hãng</title>
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/productHome.css">
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <script src="/js/script.js"></script>
 </head>
@@ -15,41 +16,73 @@
     <!-- header -->
     <%- include('header') %>
 
-    <!-- Banner -->
-    <div class="banner">
-    </div>
-    <div class="section-service">
-        <div class="section-service-1">
-            <div class="section-service-2">
-                <i class="fas fa-shipping-fast"></i>
-                <h4>GIAO HÀNG TOÀN QUỐC</h4>
-                <p>Ship COD toàn quốc. Khách hàng được kiểm tra trước khi nhận.</p>
-            </div>
-            <div class="section-service-2">
-                <i class="fa-solid fa-paper-plane"></i>
-                <h4>DỊCH VỤ HÀI LÒNG</h4>
-                <p>Liên hệ Fanpage Hí Store hoặc số Hotline 0768.793.009 để được nhân viên tư vấn.</p>
-            </div>
-            <div class="section-service-2">
-                <i class="fas fa-check-circle icon"></i>
-                <h4>BẢO HÀNH CHÍNH HÃNG</h4>
-                <p>Bảo hành keo chỉ với các sản phẩm giày dép. Hỗ trợ đổi size trong vòng 7 ngày.</p>
-            </div>
-            <div class="section-service-2">
-                <i class="fas fa-star icon"></i>
-                <h4>SHOPPING CHÍNH HÃNG</h4>
-                <p>Cam kết chính hãng trọn đời sản phẩm. Phát hiện hàng giả đền FULL GIÁ TRỊ!</p>
+        <!-- Banner -->
+        <div class="banner">
+        </div>
+        <div class="section-service">
+            <div class="section-service-1">
+                <div class="section-service-2">
+                    <i class="fas fa-shipping-fast"></i>
+                    <h4>GIAO HÀNG TOÀN QUỐC</h4>
+                    <p>Ship COD toàn quốc. Khách hàng được kiểm tra trước khi nhận.</p>
+                </div>
+                <div class="section-service-2">
+                    <i class="fa-solid fa-paper-plane"></i>
+                    <h4>DỊCH VỤ HÀI LÒNG</h4>
+                    <p>Liên hệ Fanpage Hí Store hoặc số Hotline 0768.793.009 để được nhân viên tư vấn.</p>
+                </div>
+                <div class="section-service-2">
+                    <i class="fas fa-check-circle icon"></i>
+                    <h4>BẢO HÀNH CHÍNH HÃNG</h4>
+                    <p>Bảo hành keo chỉ với các sản phẩm giày dép. Hỗ trợ đổi size trong vòng 7 ngày.</p>
+                </div>
+                <div class="section-service-2">
+                    <i class="fas fa-star icon"></i>
+                    <h4>SHOPPING CHÍNH HÃNG</h4>
+                    <p>Cam kết chính hãng trọn đời sản phẩm. Phát hiện hàng giả đền FULL GIÁ TRỊ!</p>
+                </div>
             </div>
         </div>
-    </div>
 
-    <!-- Sản phẩm -->
-    <div class="container" style="height: 500px;">
+        <!-- Sản phẩm mới -->
+        <%- include('sliderProduct', { productsArray: productsArray }) %>
 
-    </div>
+            <!-- Tất cả sản phẩm -->
+            <div class="container">
+                <h2 class="text-center mb-4 mt-4"><b>Tất cả sản phẩm</b></h2>
+                <div class="row">
+                    <% for (let i=0; i < dataTable.length; i++) {%>
+                        <div class="card-product p-3 mb-4">
+                            <div>
+                                <a href="/chi-tiet-san-pham?id=<%= dataTable[i].id %>">
+                                    <img src="<%= dataTable[i].image %>" class="card-product-image">
+                                </a>
+                            </div>
+                            <div class="mt-2">
+                                <h6 class="card-product-title">
+                                    <b><a href="/chi-tiet-san-pham?id=<%= dataTable[i].id %>">
+                                            <%=dataTable[i].code + " - " + dataTable[i].name%>
+                                        </a></b>
+                                </h6>
+                            </div>
+                            <div class="">
+                                <p style="color: red; font-size: 17px;">
+                                    <% function formatPrice(price) { 
+                                        return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "." ); } %>
+                                        <b>Giá: <%= formatPrice(dataTable[i].price) %></b>
+                                </p>
+                            </div>
+                            <div class="add row">
+                                <p><b>Xem thêm</b></p>
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </div>
+                        </div>
+                        <% }%>
+                </div>
+            </div>
 
-    <!-- footer -->
-    <%- include('footer') %>
+            <!-- footer -->
+            <%- include('footer') %>
 </body>
 
 </html>

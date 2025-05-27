@@ -25,5 +25,5 @@ const handleSearchProduct = async (req, res) => {
 module.exports = {
     handleGetProduct,
     handleGetProductDetail,
-    handleSearchProduct
+    handleSearchProduct,
 }

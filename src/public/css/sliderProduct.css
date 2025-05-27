@@ -1,0 +1,66 @@
+
+.product-card {
+    transition: transform 0.3s ease;
+    border: none;
+    overflow: hidden;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.carousel-inner {
+    padding: 1rem 0;
+}
+
+.card-title {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+    font-size: 18px;
+}
+
+.card-body {
+    padding: 10px !important;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    width: 5%;
+    background: black;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+    opacity: 1;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: #fff;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    position: relative;
+}
+
+.carousel-control-prev {
+    left: -20px;
+}
+
+.carousel-control-next {
+    right: -20px;
+}
+
+@media (max-width: 768px) {
+    .col-12.col-md-2 {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+}
